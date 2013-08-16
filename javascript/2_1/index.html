@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 1 урок 4</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}
+article{
+	display:block;
+	margin:0px;
+	background:yellow;
+	padding:5px;
+}
+#conteiner{
+	width:600px;
+	margin:0px auto auto 0 px;
+	padding:0px;
+	background:yellow;
+}	
+</style>
+</head>
+<body>
+<div id="conteiner">
+<article>
+<h1>Уровень 2 Урок 1</h1>
+<h2>Объекты</h2>
+<h3>window</h3>
+<h3>navigator</h3>
+<h3>history</h3>
+<h3>location</h3>
+<h3>screen</h3>
+<h3>document</h3>
+</article>
+<article>
+<h2>Свойства window</h2>
+<script>	
+function demoDefaultStatus(){
+	var d = new Date();
+	defaultStatus = d.toLocaleString();
+}
+</script>
+<p><a href="javascript:demoDefaultStatus()">demoDefaultStatus</a></p>
+<p><a href="http://www.google.ru" target="search">www.google.ru</a></p>
+<p><a href="http://www.yandex.ru" target="search">www.yandex.ru</a></p>
+
+<p><a href="javascript:demoDefaultStatus()">demoDefaultStatus</a></p>
+</article>
+<article>
+<h2>Метода объекта window</h2>
+	<p>
+	prompt();<br>
+	alert();<br>
+	confirm();<br>
+	open();
+	</p>
+<script>
+//alert("какое-то сообщение");
+//prompt("Подсказка что вводить","это будет в строке ввода");
+//confirm("Вопрос к пользователю");
+function demoOpen(){
+	open("http://www.google.com");
+}
+var wnd;
+function demoOpen1(){
+	wnd =open("http://www.google.com","myWindow","width=300,hight=200,top=200,left=300,status=1,location=1,menubar=1,toolbar=1,scrollbars=1,resizable=0,fullscreen=1");
+}
+function demoClose(){
+	wnd.close();
+}
+</script>
+<p><a href="javascript:demoOpen();">demoOpen</a></p>
+<p><a href="javascript:demoOpen1();">demoOpen c параметрами</a></p>
+<p><a href="javascript:demoClose();">demoClose</a></p>
+<h3>Методы для перемещения или изменения размеров окна</h3>
+<script>
+var win;
+function demoNewOpen(){
+		win = window.open("","","height=300,width=200");
+}
+function demoMoveBy(){
+	win.moveBy(30,30);
+	win.document.write("фыжаожфылдоа фа жфыоа жфдыл оа");
+	win.focus();
+}
+function demoResizeTo(){
+	win.resizeTo(300,300);
+	win.focus();
+}
+function demoNewClose(){
+	win.close();
+	win = null;
+}
+function demoSelfMoveBy(){
+	moveBy(10,10);
+}
+var wins = new Array();;
+function demoWindowsOpen(){
+var width = 200;
+var height = 200;
+	for(var i = 0; i < 3; i++){
+		for(var j = 0; j < 3; j++){
+			var top = (i*(height+80));
+			var left = (j*(width+80));
+		var newwind = window.open("http:google.com","","width="+width+",height="+height+",top="+top+",left="+left);
+		wins.push(newwind);
+		}
+	}
+}
+function demoWindowsClose(){
+	for(var k =0;k < wins.length;k++){
+		wins[k].close();
+		
+	}
+	wins = new Array();
+}
+//alert("скрипт работает");
+</script>
+<p><a href="javascript:demoNewOpen()">demoNewOpen</a></p>
+<p><a href="javascript:demoMoveBy()">demoMoveBy</a></p>
+<p><a href="javascript:demoMoveBy()">demoMoveBy</a></p>
+<p><a href="javascript:demoResizeTo()">demoResizeTo</a></p>
+<p><a href="javascript:demoNewClose()">demoNewClose</a></p>
+<p><a href="javascript:demoWindowsOpen()">demoWindowsOpen</a></p>
+<p><a href="javascript:demoWindowsClose()">demoWindowsClose</a></p>
+</article>
+<article>
+<h2>Объект window. Таймеры</h2>
+<p>setTimeout()</p>
+<p>setInterval()</p>
+<p>clearTimeout()</p>
+<p>clearInterval()</p>
+<h3>Таймеры</h3>
+<script>
+//timer1 = window.setTimeout("alert('setTimeout')", 3000);
+</script>
+<h3>Интервал</h3>
+<script>
+//interval1 = setInterval("alert('setTimeout')", 3000);
+function clearInterval1(){
+	clearInterval(interval1);
+}
+</script>
+<p><a href="javascript:clearInterval1()"></a></p>
+</article>
+<article>
+<h2>Лабораторная работа</h2>
+<h3>Часы</h3>
+<script>
+function showTime(){
+var now = new Date();
+window.defaultStatus = now.toLocaleString();
+}
+var timeInterval = null;
+function startTime(){
+	if(!timeInterval){
+	timeInterval = setInterval('showTime();',100);
+	}
+}
+function stopTime(){
+	clearInterval(timeInterval);
+	timeInterval = null;
+	window.defaultStatus = "";
+}
+
+</script>
+<p><a href='javascript:startTime()'>startTime()</a></p>
+<p><a href='javascript:stopTime()'>stopTime()</a></p>
+</article>
+<article>
+<h2>Объект navigator</h2>
+<p>Выводит свойства браузера</p>
+<script>
+for (var property in navigator){
+document.write("<br><strong>"+property+"</strong>  = ");
+document.write(navigator[property]);
+}
+</script>
+</article>
+<article>
+<h2>Объект history</h2>
+<p><ins>Отвечает за 2 кнопки в браузере. Вперед и назад.</ins></p>
+</article>
+<article>
+<h2>Объект location</h2>
+<p><ins>Отвечает за адресную строку в браузере.</ins></p>
+<script>
+function showURI(){
+	alert(unescape(location.href));
+}
+function goGoogle(){
+	location.href="http://google.com.ua";
+}
+//window.setTimeout('goGoogle();',5000);
+</script>
+<p><a href="javascript:showURI()">showURI</a></p>
+<p><a href="javascript:goGoogle()">goGoogle</a></p>
+<h3>Методы объекта location</h3>
+<p>location.assign(); - переход по адреу</p>
+<p>location.reload(); - обновление страницы</p>
+<p>location.replace('http://google.com.ua') - тоже переход на новый адрес. но нет истории. нельзя вернуться назад.</p>
+<script>
+//window.setTimeout('location.reload();',2000);
+</script>
+</article>
+<article>
+<h2>Лабораторная работа</h2>
+<script>
+//var url = prompt("Введите адрес сайта на который хотите перейти","");
+//if(url)location.assign(url);
+</script>
+</article>
+<article>
+<h2>Объект screen</h2>
+<script>
+document.write("<br>Ширина экрана = " + screen.width);
+document.write("<br>Доступная ширина экрана = " + screen.availWidth);
+document.write("<br>Высота экрана = " + screen.height);
+document.write("<br>Доступная высота экрана = " + screen.availHeight);
+document.write("<br>Глубина цвета экрана = " + screen.colorDepth);
+function openWin(){
+	var top = (screen.availHeight-350)/2;
+	var left = (screen.availWidth-400)/2;
+	params = "width=400,height=350,top="+top+",left="+left;
+	open("http://google.com.ua","",params);
+}
+</script>
+<a href="javascript:openWin()">Открыть окно</a>
+</article>
+<article>
+<h2>Объект document</h2>
+<p>window = window.document.parentWindow; - способ узнать имя окна.</p>
+<script>
+/*
+for (var property in document){
+document.write("<br><strong>"+property+"</strong>  = ");
+document.write(navigator[property]);
+}
+*/
+function demoWrite(){
+	var wnd = window.open('','','width=400,height=250');
+	wnd.document.open();
+	wnd.document.write('<html>');
+	wnd.document.write('<head>');
+	wnd.document.write('</head>');
+	wnd.document.write('<body>');
+	wnd.document.write('<h1>Привет мир!</h1>');
+	wnd.document.write('</body>');
+	wnd.document.write('</html>');
+	wnd.document.close();
+}
+</script>
+<p><a href="javascript:demoWrite()">Новое содержимое окна созданное js</a></p>
+</article>
+<h2>Закончил на времени 1 час 29 минут 51 секунда</h2>
+</div>
+</body>
+</html>

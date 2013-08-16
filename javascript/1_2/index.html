@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:black;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}	
+</style>
+<script type="text/javascript" src="javascript1.js">
+</script>
+<script>
+var a = 0;
+if(a>1){
+	//alert("a больше 1");
+	document.write("a больше 1");
+}
+else{
+	//alert("a не больше 1");
+	document.write("a не больше 1");
+}
+
+	</script>
+</head>
+<body>
+<h1>Урок 2</h1>
+<script>
+var s = "false";
+if (s) document.write("Строка не пуста");
+</script>
+<script>
+var name;
+//name= prompt("Введите ваше имя", "");
+if (!name) name = "Незнакомец";
+document.write("<p>Добрый день "+name+"!</p>");
+</script>
+<p>Тернарный оператор</p>
+<script>
+var a = 1;
+var b;
+/*
+if(a<1)
+	b="a больше 1";
+else
+	b="a НЕ больше 1";
+*/
+b=(a<1)?"a больше 1":"a НЕ больше 1";
+document.write("<br>"+b);
+
+</script>
+<h2>Оператор Switch</h2>
+<script>
+switch(a)
+{
+case 0:
+case 1:document.write('<br>один');break;
+case 2:document.write('<br>два');break;
+case 3:document.write('<br>три');break;
+default: document.write('<br>много');
+}
+</script>
+<h2>Лабораторная работа</h2>
+<script>
+//var count = prompt('Введите число ворон','');
+count = parseInt(count);
+	switch(count){
+		case 1:document.write("<p>На ветке одна ворона</p>");break;
+		case 2:document.write("<p>На ветке две вороны</p>");break;
+		case 3:document.write("<p>На ветке три вороны</p>");break;
+		case 4:document.write("<p>На ветке четыре вороны</p>");break;
+		case 5:document.write("<p>На ветке пять ворон</p>");break;
+		case 6:document.write("<p>На ветке шесть ворон</p>");break;
+		case 7:document.write("<p>На ветке семь ворон</p>");break;
+		case 8:document.write("<p>На ветке восемь ворон</p>");break;
+		case 9:document.write("<p>На ветке девять ворон</p>");break;
+		case 10:document.write("<p>На ветке десять ворон</p>");break;
+		default:document.write('<p>На ветке неизвестное количество ворон!</p>');
+	}
+</script>
+<h2>Цикл FOR</h2>
+<script>
+for(var i = 0; i < 10; i++){
+	if(i == 4) continue;
+	document.write(i + "<br>");
+	if(i == 8)break;
+}
+</script>
+<h2>Цикл while</h2>
+<script>
+var z = 1;
+while (z<1000){
+	z*=2;
+	if(z == 32) continue;
+	document.write(z + "<br>");
+	if(z == 256) break;
+}
+</script>
+<h2>Цикл с постусловием DO WHILE</h2>
+<script>
+z = 10007;
+do{
+z*=2;
+	if(z == 32) continue;
+	document.write(z + "<br>");
+	if(z == 256) break;
+} 
+while(z<1000);
+</script>
+<h2>Лабораторная работа</h2>
+<script>
+do{
+var name = prompt("Введите Ваше имя:","");
+}
+while(!name);
+document.write('<br>'+name);
+</script>
+<h2>Оператор обработки исключений</h2>
+<script>
+try{
+	asdfasdfasdfasdfasdf;
+	}
+catch(e){
+document.write(e.message);
+	
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 1 урок 4</title>
+<style>
+html{
+	height:100%;
+}
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}
+article{
+	display:block;
+	margin:0px;
+	background:yellow;
+	padding:5px;
+}
+#conteiner{
+	width:600px;
+	margin:0px auto auto 0px;
+	padding:0px;
+	background:yellow;
+}
+#clock{
+	display:block;
+	min-width:100px;
+	min-height:20px;
+	background:green;
+	margin:3px auto;
+	width:150px;
+	text-align:center;
+	color:white;
+	border-radius:15px;
+}
+#photo{
+	height:60px;
+}
+</style>
+</head>
+<body>
+<div id="conteiner">
+<article>
+<h1>Уровень 2 Урок 3</h1>
+<h2>События</h2>
+<script>
+function myEventHandler(){
+	alert("Произошло событие");
+}
+//Здесь все что выполниться при загрузке сраницы. Из разных частей.
+window.onload = function(){
+	//запусакю часы
+	startClock()
+	//параграфы
+	var p = document.getElementById('p2');
+	p.onclick = myEventHandler;
+	//часы
+	var clockDiv = document.getElementById('clock');
+	clockDiv.onclick = clock;
+	//работа  со всеми параграфами страницы.
+	//alertAllP();
+//Лабораторная работа. красим параграфы при клике
+listColor();
+//вызываем функцию по работе с фото
+photo();
+}
+</script> 
+<p ondblclick="myEventHandler()">Параграф1</p>
+<p id="p2">Параграф2</p>
+<p>Еще параграф</p>
+<p>Еще параграф</p>
+<p>Еще параграф</p>
+<p>Еще параграф</p>
+<h2>Лабораторная работа</h2>
+<script>
+var timer;
+function showTime(){
+	var now = new Date();
+	var c = document.getElementById('clock');
+	c.innerHTML = now.toLocaleTimeString();
+	//c.className = "myClock";
+}
+function startClock(){
+	if(!timer){
+		showTime();
+		timer = window.setInterval('showTime()',1000);
+	}
+}
+function stopClock(){
+	window.clearInterval(timer);
+	timer = null;
+}
+function clock(){
+	if(!timer){
+		startClock();
+	}
+	else{
+		stopClock();
+	}
+}
+//на событие подпишусь выше. где вызов window.onload
+//работа со всеми параграфами
+function alertAllP(){
+	var ps = document.getElementsByTagName('P');
+	var length = ps.length;
+	for(var i = 0;i < length;i++){
+			ps[i].onclick = myEventHandler;	
+	}
+}
+</script>
+<div id="clock">
+</div>
+<p><a href="javascript:startClock()">startClock()</a></p>
+<p><a href="javascript:stopClock()">stopClock()</a></p>
+<h2>Лабораторная работа</h2>
+<script>
+function newColorLi(){
+/*
+	var ul = document.getElementById('newList');
+	var allLi = ul.getElementsByTagName('LI');
+	var length = allLi.length;
+	for (var i = 0; i < length;i++){
+		allLi[i].style.color = "";
+	}
+*/
+	if(this.parentNode.selectedItem != this){
+		if(this.parentNode.selectedItem){
+			this.parentNode.selectedItem.style.color = '';
+		}
+		this.style.color = "red";
+		this.parentNode.selectedItem = this;
+	}
+	else{
+		this.style.color = "";
+		this.parentNode.selectedItem = null;
+	}
+
+}	
+function listColor(){
+	var ul = document.getElementById('newList');
+	var allLi = ul.getElementsByTagName('LI');
+	var length = allLi.length;
+	for (var i = 0; i < length;i++){
+		allLi[i].onclick = newColorLi;
+	}
+}
+function addToList(){
+	var ul = document.getElementById('newList');
+	var value = prompt('Введите новое значение','');
+	if(value){
+	var li = document.createElement('LI');
+	ul.appendChild(li);
+	var text = document.createTextNode(value);
+	li.appendChild(text);
+	li.onclick = newColorLi;
+	}
+}
+</script>
+<ul id="newList">
+	<li>Музыка</li>
+	<li>Кино</li>
+	<li>Игры</li>
+	<li>Книги</li>
+</ul>
+<p><a href="javascript:addToList();">Добавить элемент в список</a></p>
+</article>
+<article>
+<h2>Лабораторная работа.Фотоальбом. </h2>
+<script>
+var photos = new Array('photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg','1.jpg','2.jpg','3.jpg','4.jpg','6.jpg');
+//на событие загрузки страницы функцию подпишу выше
+function photo(){
+	var img = document.getElementById('photo');
+	if(!img.index){
+		img.index = 0;
+	}
+	img.src = "images/" + photos[img.index];
+	img.onclick = photoOnclick;
+}
+function photoOnclick(){
+	var img = document.getElementById('photo');
+	img.index += 1;
+	if (img.index >= photos.length){
+		img.index = 0;
+	}
+	img.src = "images/" + photos[img.index];
+}
+function photoSlideShow(){
+	var img = document.getElementById('photo');
+	var control = document.getElementById('photoSlideControl');
+	if(!img.photoSlideShow){
+		img.photoSlideShow = setInterval("photoOnclick()",2000)
+		control.firstChild.nodeValue = "Остановить показ слайдов";
+	}
+	else{
+		clearInterval(img.photoSlideShow);
+		img.photoSlideShow = null;
+		control.firstChild.nodeValue = "Запустить показ слайдов";
+	}
+}
+</script>
+<div align='center'>
+<img id="photo" />
+<p><a id='photoSlideControl' href="javascript:photoSlideShow()">Запустить показ слайдов</a></p>
+</div>
+</article>
+</div>
+<h1>Закончил на 2-30 </h1>
+</body>
+</html>

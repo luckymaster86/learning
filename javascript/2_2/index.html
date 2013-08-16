@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 1 урок 4</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}
+article{
+	display:block;
+	margin:0px;
+	background:yellow;
+	padding:5px;
+}
+#conteiner{
+	width:600px;
+	margin:0px auto auto 0 px;
+	padding:0px;
+	background:yellow;
+}	
+.myClock{
+	color:orange;
+	background-color:white;
+}
+.myClock1{
+	color:red;
+}
+myClock2{
+	color:green;
+}
+myClock3{
+	color:blue;
+}
+#panelTitle{
+	display:block;
+	border: 1px solid black;
+	background-color : #DFDFDF;
+	text-decoration:none;
+}
+#panel{
+	border: 1px solid black;
+	border-top-width : 0px;
+	overflow:hidden;
+}
+<!--
+#panelConteiner{
+	border:none;
+	height:170px;
+	padding:0;
+	margin:0;
+}
+-->
+</style>
+</head>
+<body>
+<div id="conteiner">
+<article>
+<h1>Уровень 2 Урок 1</h1>
+<h2>DOM</h2>
+<h2>Лабораторная работа</h2>
+<script> 
+function myClock(){
+var date = new Date();
+var myDiv = document.getElementById('clock');
+myDiv.innerHTML =  date.toLocaleTimeString();
+//myDiv.style.color = colors[date.getSeconds()%3];
+myDiv.style.color = getRandomCSSColor();
+}
+function start(){
+var myDiv = document.getElementById('clock');
+if(!myDiv.clock)myDiv.clock = setInterval('myClock()',1000);
+myClock();
+}
+function stop(){
+var myDiv = document.getElementById('clock');
+clearInterval(myDiv.clock);
+myDiv.clock = null;
+}
+//изменение цвета часов
+//var colors = new Array('red','green','blue');
+function getRandom(n){
+	return Math.round(n*Math.random());
+}
+function getRandomCSSColor(){
+	var red = getRandom(255);
+	var green = getRandom(255);
+	var blue = getRandom(255);
+	var color = "rgb("+red+","+green+","+blue+")";
+	return color;
+}
+</script>
+<div id="clock"> 
+</div>
+<p><a href="javascript:start()">startClock</a></p>
+<p><a href="javascript:stop()">stopClock</a></p>
+</article>
+<article>
+<h2>Как менять css из js</h2>
+<script>
+var myDiv = document.getElementById("clock");
+//myDiv.style.color = "red";
+myDiv.className = 'myClock';
+</script>
+<h3>getElementsByTagName()</h3>
+<script>
+function allPColor(){
+	var allP = document.getElementsByTagName("P");
+	for(var i = 0; i < allP.length;i++){
+		allP[i].style.color = "red";
+	}
+}
+function allPSetTitle(){
+	var allP = document.getElementsByTagName("P");
+	for(var i = 0; i < allP.length;i++){
+		allP[i].setAttribute('title','это подсказка');
+	}
+}
+function setTitle(tagName){
+	var all = document.getElementsByTagName(tagName);
+	for(var i = 0; i < all.length;i++){
+		all[i].setAttribute('title','это подсказка');
+	}
+}
+function setAttributes(conteinerId,tag,attribute,value){
+	var conteiner = document.getElementById(conteinerId);
+	var all = conteiner.getElementsByTagName(tag);
+	for(var i = 0; i < all.length;i++){
+		all[i].setAttribute(attribute,value);
+	}
+}
+</script>
+<p><a href="javascript:allPColor()">Покрасить все параграфы на странице в красный цвет</a></p>
+<p><a href="javascript:allPSetTitle()">Задать подсказку ко всем параграфам на странице.</a></p>
+<p><a href="javascript:setTitle('P')">Задать подсказку к указанным в параметре тегам.</a></p>
+<p><a href="javascript:setTitle('DIV')">Задать подсказку к указанным в параметре тегам.</a></p>
+<p><a href="javascript:setAttributes('newDiv','p','title','Супер пупер подсказка.')">Задать заданную подсказку к тегам которые находяться внутри тега с указанным в параметрах ID.</a></p>
+<div id="newDiv">
+	<p>Пример параграфа</p>
+	<div>
+		<p>Еще параграф</p>
+	</div>
+</div>
+<div>
+<p>Еще параграф!</p>
+</div>
+<script>
+function collapsePanel(){
+	var link = document.getElementById('panelLink');
+	var panel = document.getElementById('panel');
+	var step = 2;
+	if( panel.clientHeight >= step){
+		var h = panel.clientHeight - step;
+		panel.style.height = h+'px';
+		setTimeout('collapsePanel()',3);
+		if(panel.height == null){
+			panel.height = panel.clientHeight;
+		}
+	}
+	else{
+		panel.style.display = "none";
+		link.firstChild.nodeValue = "Развернуть";
+	}
+}
+function changePanel(){
+	var panel = document.getElementById('panel');
+	var panelTitle = document.getElementById('panelTitle');
+	var link = document.getElementById('panelLink');
+	if(panel.style.display == "none"){
+		panel.style.display = '';
+		panel.style.height = panel.height+'px';
+		link.firstChild.nodeValue = "Свернуть";
+	}
+	else{
+		collapsePanel();
+	}
+}
+</script>
+<h3>Панелька</h3>
+
+	<div>
+		<div id="panelTitle" onclick="javascript:changePanel()"><a id="panelLink" href="javascript:changePanel()">Скрыть</a>
+		</div>
+		<div id="panel">Забавная история из институтской юности. Мы с подругой Ирой – второкурсницы. Уже большие. Все видали, все знаем. Знакомы с настоящей рок-группой. Сидим пьем пиво в парке. Я говорю: Ира, а ты заметила, что к нам стали реже клеиться на улицах и ваапще? Это не потому, что мы стали менее красивыми, чем в 18 лет! Это потому, что мы теперь Крутые, и это видно! И к нам так просто не подъедешь! Да, говорит Ира. Мы крутые и Очень красивые! И тут к нам подходят два мужика лет за 40, садятся рядом. Один сразу меня приобнимает – «девчонки, водочку с нами будете?»
+		</div>
+	</div>
+
+</article>
+<article>
+<h2>Работа с атрибутов элементов</h2>
+<p>getAttribute() - получение значения</p>
+<p>setAttribute() - установить значение</p>
+<p>removeAttribute() - удалить атрибут</p>
+<h3>пример</h3>
+<script>
+function changePAttribute(){
+	var allP = document.getElementsByTagName('P');
+	for(var i = 0; i < allP.length;i++){
+		var p = allP[i];
+		if(p.getAttribute("align") == "left"){
+			p.setAttribute("align","right");
+		}
+		else{
+			p.setAttribute("align","left");
+		}
+	}
+}
+</script>
+<div>
+<p align="left">aertert sdfgsfg df sdfg rth rert r rg erstg ds fgs dfgsd fd f</p>
+<p align="right">wrtwetr seg sdfg sdfg sdgf sdgf sdgfsdfg sdfg esr    sgds f</p>
+<p align="left">erterte ert etr  sfg sdfg sdg sdfg yjuyj tyh rs </p>
+<p align="right">e rt ert ert  sd gfsdfg sdfgsdfg sdfg sdgf sdfg sdfgsdfg sdfg sdfg sdfg sgf dsgf sdgf sfg s</p>
+<a href="javascript:changePAttribute()">Изменить атрибут у параграфов</a>
+</div>
+</article>
+<article>
+<script>
+function createParagraf(){
+	var p = document.createElement("P");
+	//document.body.appendChild(p);
+	var paragraf = document.getElementById('paragraf');
+	paragraf.appendChild(p);
+	var t = document.createTextNode('Новый параграф');
+	p.appendChild(t);
+}
+function createParagrafBefore(){
+	var p = document.createElement("P");
+	//document.body.appendChild(p);
+	var paragraf = document.getElementById('paragraf');
+	paragraf.insertBefore(p,paragraf.firstChild);
+	var t = document.createTextNode('Новый параграф на 1 позиции');
+	p.appendChild(t);
+}
+</script>
+<h2>Создание объекта</h2>
+<h3>Создать параграф</h3>
+<a href="javascript:createParagraf()">Создать новый параграф</a><br>
+<a href="javascript:createParagrafBefore()">Создать новый параграф на 1 позиции</a>
+<div id="paragraf"><p>параграф<p></div>
+<h2>Лабораторная работа</h2>
+<script>
+function makeList(){
+	var value = prompt('Введите новыйэлемент списка','');
+	if (value){
+		var ul = document.getElementById('list');
+		var li = document.createElement('LI');
+		ul.appendChild(li);
+		var text = document.createTextNode(value);
+		li.appendChild(text);
+	}
+}
+</script>
+<ul id="list">
+	<li>Музыка</li>
+	<li>Кино</li>
+	<li>Архитектура</li>
+</ul>
+<a href="javascript:makeList();">Добавить значение в список</a>
+</article>
+<article>
+<script>
+function deleteElement(){
+	var div = document.getElementById('div');
+	div.parentNode.removeChild(div);
+}
+function deleteLastElement(){
+	var div = document.getElementById('div');
+	var last = div.lastChild;
+	while(last && last.nodeType != 1){
+		last = last.previousSibling;
+	}
+	if(last){
+		last.parentNode.removeChild(last);
+	}
+}
+</script>
+<h2>Удаление элементов</h2>
+<a href="javascript:deleteElement()">Удалить див</a><br>
+<a href="javascript:deleteLastElement()">Удалить последний дочерний элемент</a><br>
+<div id="div" style="background-color:lightblue">
+	<p>Первый параграф</p>
+	<div style="background-color:red">Встроенный див
+	</div>
+	<p>Последний параграф</p>
+</div>
+</article>
+</div>
+<h1>Закончил на 02-12</h1>
+</body>
+</html>

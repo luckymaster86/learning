@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background:blue;
+}
+</style>
+<script>
+/*
+			Вывод данных на экран
+*/
+//alert('Привет Мир!');
+document.write('<h1 style="text-align:center">Вот такой вот привет!!!</h1>');
+document.write('<pre>');
+document.writeln('adfadsf');
+document.writeln('adfadsf');
+document.write('</pre>');
+/*
+				ПЕРЕМЕННЫЕ
+*/
+var a;
+var counter = 10;
+counter = 123;
+counter = 2*2;
+counter = 3+3;
+//alert(counter);
+counter = 1;
+//alert(counter);
+x = 5;
+//alert('x='+x);
+
+/*
+				ТИПЫ ДАННЫХ
+*/
+var y;
+//alert(y);
+myCounter = null;
+//alert(myCounter);
+
+var b = true;
+var c = false;
+var d = a || b;
+//alert('d = '+d);
+var e = !b;
+//alert('e = '+e);
+var h = "\"Привет\"";
+//alert(h);
+var name = 'Роман';
+//alert(name[2]);
+//var x = 5;
+x = 5.5;
+x = 5e3;
+x = 5e-3;
+var z = 0xFF;//16ричная система
+var v = 0142;//8ричная система 
+//alert(v);
+var f = -1/0;
+//alert(f);
+f = "100"+1;
+//alert(f);//1001
+f = parseInt("100") + 1;
+//alert(f);//101
+//parseFloat("")//перевод из строки в число
+//prompt("подсказка","значение");
+//var s = prompt("подсказка","результат");
+//alert(s);
+/*
+				ЛАБОРАТОРНАЯ РАБОТА
+*/
+var s = prompt("Введите ваше имя","");
+if (s != null){
+	document.write('Ваше имя '+s+'!');
+}
+else{
+	document.write('Ваше имя НЕИЗВЕСТНО!');
+};
+var age = prompt('Укажите Ваш возраст','');
+age = parseInt(age);
+
+var k = prompt('Введите первое чилсло','');
+var l = prompt('Введите второе число','');
+k = parseInt(k);
+l = parseInt(l);
+var g = k * l;
+document.write(g);
+</script>
+</head>
+<body>
+<h2>Выводится после скрипта?</h2>
+<p id="one">fdsfasdf</p>
+</body>
+</html>

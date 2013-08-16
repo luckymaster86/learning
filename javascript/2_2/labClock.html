@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 1 урок 4</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+</style>
+</head>
+<body>
+<article>
+<h2>Лабораторная работа</h2>
+<h3>Часы</h3>
+<script>
+function showTime(){
+var now = new Date();
+var p = getElementById('clock');
+p.innerHTML = now.toLocaleString();
+}
+var timeInterval = null;
+function startTime(){
+	if(!timeInterval){
+	timeInterval = setInterval('showTime();',100);
+	}
+}
+function stopTime(){
+	clearInterval(timeInterval);
+	timeInterval = null;
+	window.defaultStatus = "";
+}
+
+</script>
+<p id="clock"></p>
+<p><a href='javascript:startTime()'>startTime()</a></p>
+<p><a href='javascript:stopTime()'>stopTime()</a></p>
+</article>
+</body>
+</html>

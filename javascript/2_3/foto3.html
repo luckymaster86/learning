@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 2 урок 3. Фотогалерея 2</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}
+article{
+	display:block;
+	margin:0px;
+	background:yellow;
+	padding:5px;
+}
+#conteiner{
+	width:600px;
+	margin:0px auto auto 0px;
+	padding:0px;
+	background:yellow;
+}
+#shadow{
+	position : absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:black;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+#photo{
+	position : absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-repeat:no-repeat;
+	background-position:center center;
+	opacity:1;
+	filter:alfa(100);
+}
+</style>
+<script>
+var photos = new Array('photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg','1.jpg','2.jpg','3.jpg','4.jpg','6.jpg');
+function onPhotoClick(){
+	var photo = document.getElementById('photo');
+	photo.style.display = "";
+	photo.style.backgroundImage = "url('" + this.src +"')";
+	document.getElementById('shadow').style.display = "";
+}
+function noShadowNoPhoto(){
+	document.getElementById('shadow').style.display = "none";
+	document.getElementById('photo').style.display = "none";
+}
+function photoGalery(){
+	var photo = document.getElementById('photo');
+	photo.style.display = "none";
+	var photoConteiner = document.getElementById('photoConteiner');
+	for(var i = 0;i < photos.length;i++){
+		var img =document.createElement('IMG');
+		img.src = "images/"+photos[i];
+		img.height = 50;
+		img.style.margin = '10px';
+		img.style.cursor = 'pointer';
+		img.onclick = onPhotoClick;
+		photoConteiner.appendChild(img);
+	}
+	var shadow = document.getElementById("shadow");
+	shadow.style.display = "none";
+	photo.onclick = noShadowNoPhoto;
+}
+window.onload = function(){
+photoGalery();		
+}
+</script>
+</head>
+<body>
+<article>
+<h1>Уровень 2 Урок 3. Вариант фотоальбома 2</h1>
+<h2>Фотоальбом</h2>
+<div id="photoConteiner" align="center">
+</div>
+<div align='center'>
+</div>
+</article>
+<div id='shadow' align="center">
+</div>
+<div id="photo">
+</div>
+</body>
+</html>

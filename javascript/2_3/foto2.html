@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 2 урок 3. Фотогалерея 2</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}
+article{
+	display:block;
+	margin:0px;
+	background:yellow;
+	padding:5px;
+}
+#conteiner{
+	width:600px;
+	margin:0px auto auto 0px;
+	padding:0px;
+	background:yellow;
+}
+
+#clock{
+	display:block;
+	min-width:100px;
+	min-height:20px;
+	background:green;
+	margin:3px auto;
+	width:150px;
+	text-align:center;
+	color:white;
+	border-radius:15px;
+}
+</style>
+<script>
+var photos = new Array('photo1.jpg','photo2.jpg','photo3.jpg','photo4.jpg','1.jpg','2.jpg','3.jpg','4.jpg','6.jpg');
+function onPhotoClick(){
+	var photo = document.getElementById('photo');
+	photo.src = this.src;
+	document.getElementById('photo').style.display = "";
+}
+window.onload = function(){
+	document.getElementById('photo').style.display = "none";
+	var photoConteiner = document.getElementById('photoConteiner');
+	for(var i = 0;i < photos.length;i++){
+		var img =document.createElement('IMG');
+		img.src = "images/"+photos[i];
+		img.height = 50;
+		img.style.margin = '10px';
+		img.style.cursor = 'pointer';
+		img.onclick = onPhotoClick;
+		photoConteiner.appendChild(img);
+		
+	}
+}
+</script>
+</head>
+<body>
+<article>
+<h1>Уровень 2 Урок 3. Вариант фотоальбома 2</h1>
+<h2>Фотоальбом</h2>
+<div id="photoConteiner" align="center">
+</div>
+<div align='center'>
+<img id="photo" />
+</div>
+</article>
+</body>
+</html>

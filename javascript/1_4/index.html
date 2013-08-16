@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Уровень 1 урок 4</title>
+<style>
+body{
+	margin:0px;
+	padding:0px;
+	background:grey;
+}
+section{
+	border:0px;
+	width:100%;
+	margin:0 auto;
+	background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}
+p{
+	width:100%;
+	text-align:center;
+}	
+p.voron{
+	text-align:center;
+	text-valign:middle;
+	background:grey;
+	width:50%;
+	margin:3px auto;
+}
+</style>
+</head>
+<body>
+<section>
+<h1>Урок 4</h1>
+<h2>Массивы</h2>
+<pre><code class="javascript">&lt;script&gt;
+var arr = new Array();
+arr[0]= &quot;Элемент 1&quot;;
+arr[1]= &quot;Элемент 2&quot;;
+arr[2]= &quot;Элемент 3&quot;;
+arr[3]= &quot;Элемент 4&quot;;
+document.writeln(arr.length+&quot;&lt;br&gt;&quot;);
+var secondArray = new Array(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;);
+for(var i=0;i&lt;secondArray.length;i++){
+	document.writeln(secondArray[i]);
+}
+document.write(&quot;&lt;br&gt;&quot;+secondArray);
+var myColors = new Array(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;);
+delete myColors[1];//присваивает значение undefined для элемента(не удаляет их)
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+var arr = new Array();
+arr[0]= "Элемент 1";
+arr[1]= "Элемент 2";
+arr[2]= "Элемент 3";
+arr[3]= "Элемент 4";
+document.writeln(arr.length+"<br>");
+var secondArray = new Array("red","green","blue");
+for(var i=0;i<secondArray.length;i++){
+	document.writeln(secondArray[i]);
+}
+document.write("<br>"+secondArray);
+var myColors = new Array("red","green","blue");
+delete myColors[1];//присваивает значение undefined для элемента(не удаляет их)
+</script>
+<hr>
+<h2>Методы работы с массивами</h2>
+<h3>Метод POP</h3>
+<p>Вырезает последний элемент массива</p>
+<pre><code class="javascript">&lt;script&gt;
+myColors[1] = &quot;green&quot;;
+myColors.pop();
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+</code></pre>
+<hr>
+<script>
+myColors[1] = "green";
+myColors.pop();
+document.write("<br>"+myColors);
+</script>
+<hr>
+<h3>Метод PUSH</h3>
+<p>Добавляет последний элемент массива</p>
+<pre><code class="javascript">&lt;script&gt;
+myColors.push('blue');
+myColors.push('yellow');
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+myColors.push('blue');
+myColors.push('yellow');
+document.write("<br>"+myColors);
+</script>
+<hr>
+<h3>Методы shift и unshift</h3>
+<p>Добавляет и соответственно удаляет 1 элемент массива</p>
+<pre><code class="javascript">&lt;script&gt;
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+myColors.shift();
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+myColors.unshift(&quot;pink&quot;);
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+document.write("<br>"+myColors);
+myColors.shift();
+document.write("<br>"+myColors);
+myColors.unshift("pink");
+document.write("<br>"+myColors);
+</script>
+<hr>
+<h3>Метод splice</h3>
+<p>Вырезаем часть массива. 1 параметр - индекс элемента с которого вырезаем. 2 параметр  - сколько вырезаем.</p>
+<p>Всегда возвращает массив.</p>
+<pre><code class="javascript">&lt;script&gt;
+myColors.splice(1,1);
+document.write(&quot;&lt;br&gt;&quot;+myColors);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+myColors.splice(1,1);
+document.write("<br>"+myColors);
+</script>
+<hr>
+<h3>Метод join</h3>
+<p>Выводит элементы массива в строку. Если указан парамет - он будет разделителем</p>
+<pre><code class="javascript">&lt;script&gt;
+var s = myColors.join('`````');
+document.write(&quot;&lt;br&gt;&quot;+s);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var s = myColors.join('`````');
+document.write("<br>"+s);
+</script>
+<hr>
+<h3>Метод split</h3>
+<p>Позволяет строку разрезать на массив строк</p>
+<pre><code class="javascript">&lt;script&gt;
+var str = &quot;Саша,Маша,Даша,Лена&quot;;
+var users = str.split(&quot;,&quot;);
+for(var i = 0; i &lt; users.length;i++){
+	document.write(&quot;&lt;br&gt;&quot;+users[i]);
+}
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var str = "Саша,Маша,Даша,Лена";
+var users = str.split(",");
+for(var i = 0; i < users.length;i++){
+	document.write("<br>"+users[i]);
+}
+</script>
+<hr>
+<h3>Метод reverse</h3>
+<p>Переупорядочевает массив в обратном порядке</p>
+<pre><code class="javascript">&lt;script&gt;
+document.write(users.reverse());
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+document.write(users.reverse());
+</script>
+<hr>
+<h3>Метод sort</h3>
+<p>Сортирует элементы массива</p>
+<p>Если нужно отсортировать не как строки - нужно написать функцию сортировки.</p>
+<pre><code class="javascript">&lt;script&gt;
+document.write(users.sort()+&quot;&lt;br&gt;&quot;);
+var newArray = new Array(34,234,23,6,1,14,75);
+document.write(newArray.sort());
+function compareNumbers(n1,n2){
+	if(n1==n2) return 0;
+	if(n1&gt;n2){
+		return 1;
+	}
+	else{
+		return -1;
+	}
+}
+document.write(&quot;&lt;br&gt;&quot;+newArray.sort(compareNumbers));
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+document.write(users.sort()+"<br>");
+var newArray = new Array(34,234,23,6,1,14,75);
+document.write(newArray.sort());
+function compareNumbers(n1,n2){
+	if(n1==n2) return 0;
+	if(n1>n2){
+		return 1;
+	}
+	else{
+		return -1;
+	}
+}
+document.write("<br>"+newArray.sort(compareNumbers));
+</script>
+<hr>
+<h2>Лабораторная работа</h2>
+<pre><code class="javascript">&lt;script&gt;
+var data = new Array();
+var i = -1;
+do{
+data.push(/*prompt(&quot;Введите число. В конце введите 0.&quot;,&quot;&quot;)*/0);
+i++;
+}
+while(data[i] != 0);
+data.pop();
+document.write(&quot;&lt;p&gt;&quot;+data+&quot;&lt;/p&gt;&quot;);
+var sum = 0;
+for(i=0,j=data.length;i&lt;j;i++){
+	sum += parseFloat(data[i]);
+}
+document.write(&quot;&lt;p&gt;&quot;+sum/i+&quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var data = new Array();
+var i = -1;
+do{
+data.push(/*prompt("Введите число. В конце введите 0.","")*/0);
+i++;
+}
+while(data[i] != 0);
+data.pop();
+document.write("<p>"+data+"</p>");
+var sum = 0;
+for(i=0,j=data.length;i<j;i++){
+	sum += parseFloat(data[i]);
+}
+document.write("<p>"+sum/i+"</p>");
+</script>
+<hr>
+<h2>Объект Global</h2>
+<p>parseInt parseFloat</p>
+<p>isFinite isNaN</p>
+<p> decodeURI(переводит коды запрещенных символов в сами символы) encodeURI(кодирует запрещенные символы)</p>
+<p>escape(кодирует еще больше символов) unescape</p>
+<p>eval(мощный метод, но пользоваться им не рекомендуеться. Рассматривает строчку переданную параметром как javascript и пытаеться ее выполнить.)</p>
+<pre><code class="javascript">&lt;script&gt;
+var s = &quot;document.write('&lt;p&gt;HELLO!&lt;/p&gt;');&quot;;
+eval(s);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var s = "document.write('<p>HELLO!</p>');";
+eval(s);
+</script>
+<hr>
+<h2>Объект Math (математические методы)</h2>
+<p></p>
+<h2>Объект Date</h2>
+<pre><code class="javascript">&lt;script&gt;
+var date = new Date();
+document.write(&quot;&lt;br&gt;&quot;+date);
+document.write(&quot;&lt;br&gt;&quot;+date.toLocaleDateString());
+document.write(&quot;&lt;br&gt;&quot;+date.toLocaleString());
+document.write(&quot;&lt;br&gt;&quot;+date.toLocaleTimeString());
+
+var d = new Date(2018,0,1);
+var days = new Array(&quot;воскресенье&quot;,&quot;понедельник&quot;,&quot;вторник&quot;,&quot;среда&quot;,&quot;четверг&quot;,&quot;пятница&quot;,&quot;субота&quot;);
+document.write(&quot;&lt;br&gt;&quot;+days[d.getDay()]);
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var date = new Date();
+document.write("<br>"+date);
+document.write("<br>"+date.toLocaleDateString());
+document.write("<br>"+date.toLocaleString());
+document.write("<br>"+date.toLocaleTimeString());
+
+var d = new Date(2018,0,1);
+var days = new Array("воскресенье","понедельник","вторник","среда","четверг","пятница","субота");
+document.write("<br>"+days[d.getDay()]);
+</script>
+<hr>
+<h2>Создание объектов - коллекций</h2>
+<pre><code class="javascript">&lt;script&gt;
+var myBook = new Object();
+myBook.title = &quot;Книга 1&quot;;
+myBook.price = 220;
+myBook.author = 'Pasko';
+
+document.write(&quot;&lt;p&gt;&quot;+myBook['title']+&quot;&lt;/p&gt;&quot;);//обращение через индексатор
+document.write(&quot;&lt;p&gt;&quot;+myBook.title+&quot;&lt;/p&gt;&quot;);
+function myBookShow(){
+	for(var key in myBook){
+		document.write(&quot;&lt;p&gt;&quot;+key+&quot;:&quot;+myBook[key]+&quot;&lt;/p&gt;&quot;);
+	}
+}
+myBook.show = myBookShow;
+// Можно через безымянную функцию
+myBook.show1 = function(){
+							for(var key in myBook){
+								document.write(&quot;&lt;p&gt;&quot;+key+&quot;:&quot;+myBook[key]+&quot;&lt;/p&gt;&quot;);
+							}
+				}
+myBook.show();
+myBook.show1();
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+var myBook = new Object();
+myBook.title = "Книга 1";
+myBook.price = 220;
+myBook.author = 'Pasko';
+
+document.write("<p>"+myBook['title']+"</p>");//обращение через индексатор
+document.write("<p>"+myBook.title+"</p>");
+function myBookShow(){
+	for(var key in myBook){
+		document.write("<p>"+key+":"+myBook[key]+"</p>");
+	}
+}
+myBook.show = myBookShow;
+// Можно через безымянную функцию
+myBook.show1 = function(){
+							for(var key in myBook){
+								document.write("<p>"+key+":"+myBook[key]+"</p>");
+							}
+				}
+myBook.show();
+myBook.show1();
+</script>
+<hr>
+<h3>Функция конструктор объектов</h3>
+<pre><code class="javascript">&lt;script&gt;
+function Book(title,price){
+	this.title = title;
+	this.price = price;
+	this.show = function(){
+		for(var key in myBook){
+		document.write(&quot;&lt;p&gt;&quot;+key+&quot;:&quot;+myBook[key]+&quot;&lt;/p&gt;&quot;);
+		}
+	}
+}
+book = new Book(&quot;Букварь&quot;,299);
+book1 = new Book(&quot;Атлас мира&quot;,388);
+book.show();
+book.show();
+&lt;/script&gt;
+</code></pre>
+<hr>
+<script>
+function Book(title,price){
+	this.title = title;
+	this.price = price;
+	this.show = function(){
+		for(var key in myBook){
+		document.write("<p>"+key+":"+myBook[key]+"</p>");
+		}
+	}
+}
+book = new Book("Букварь",299);
+book1 = new Book("Атлас мира",388);
+book.show();
+book.show();
+</script>
+<hr>
+</section>
+</body>
+</html>

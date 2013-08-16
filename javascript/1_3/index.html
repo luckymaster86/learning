@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background:white;
+}
+h1{
+	text-align:center;
+	color:blue;
+	background:pink;
+	display:block;
+	border-radius:15px;
+	width:500px;
+	margin:5px auto;
+}
+h2{
+	text-align:center;
+	color:white;
+	background:green;
+	display:block;
+	border-radius:15px;
+	width:450px;
+	margin:5px auto;
+}
+h3{
+	margin:3px auto;
+	text-align:center;
+	width:100%;
+}	
+p.voron{
+	text-align:center;
+	text-valign:middle;
+	background:grey;
+	width:50%;
+	margin:3px auto;
+}
+</style>
+<script type="text/javascript" src="function.js"></script>
+</head>
+<body>
+<h1>Урок 3</h1>
+<h2>Описание и вызов функций</h2>
+<pre><code class="php">&lt;script&gt;
+function sayHello(){
+	document.write(&quot;&lt;h3&gt;Привет!!!&lt;/h3&gt;&quot;);
+}
+sayHello();
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+function sayHello(){
+	document.write("<h3>Привет!!!</h3>");
+}
+sayHello();
+</script>
+<hr>
+<h2>Вставляем js код из файла</h2>
+<pre><code class="php">&lt;script type=&quot;text/javascript&quot; src=&quot;function.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+hello();</code></pre>
+<hr>
+<script type="text/javascript" src="function.js"></script>
+<script>
+hello();
+</script>
+<hr>
+<h2>Параметры функций</h2>
+<pre><code class="php">&lt;script&gt;
+function sayHelloName(userName){
+	document.write(&quot;&lt;h3&gt;Привет &quot;+userName+&quot;!!!&lt;/h3&gt;&quot;);
+}
+sayHelloName(&quot;Демьян&quot;);
+function sayHelloNameColor(userName,color){
+if(!color)color=&quot;green&quot;;
+document.write(&quot;&lt;h3 style='color:&quot;+color+&quot;'&gt;Привет &quot;+userName+&quot;!!!&lt;/h3&gt;&quot;);
+}
+sayHelloNameColor(&quot;Архимадрид&quot;,&quot;red&quot;);
+sayHelloNameColor(&quot;Архимадрид&quot;,&quot;blue&quot;);
+sayHelloNameColor(&quot;Архимадрид&quot;);
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+function sayHelloName(userName){
+	document.write("<h3>Привет "+userName+"!!!</h3>");
+}
+sayHelloName("Демьян");
+function sayHelloNameColor(userName,color){
+if(!color)color="green";
+document.write("<h3 style='color:"+color+"'>Привет "+userName+"!!!</h3>");
+}
+sayHelloNameColor("Архимадрид","red");
+sayHelloNameColor("Архимадрид","blue");
+sayHelloNameColor("Архимадрид");
+</script>
+<hr>
+<h2>Возврат значения функциями</h2>
+<pre><code class="php">&lt;script&gt;
+function makeReturn(a){
+return a + 10;
+}
+document.write(&quot;&lt;h3&gt;&quot;+makeReturn(20)+&quot;&lt;/h3&gt;&quot;);
+var a = 10;
+var b = makeReturn(a);
+document.write(&quot;&lt;h3&gt;&quot;+b+&quot;&lt;/h3&gt;&quot;);
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+function makeReturn(a){
+return a + 10;
+}
+document.write("<h3>"+makeReturn(20)+"</h3>");
+var a = 10;
+var b = makeReturn(a);
+document.write("<h3>"+b+"</h3>");
+</script>
+<hr>
+<h2>Глобальные переменные</h2>
+<pre><code class="php">&lt;script&gt;
+var myVar = 0;
+function foo(){
+	myVar = 10;
+	document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+}
+function bar(){
+	myVar *= 5;
+	document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+}
+foo();
+bar();
+document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+var myVar = 0;
+function foo(){
+	myVar = 10;
+	document.write("foo() : myVar =  " + myVar + "<br>");
+}
+function bar(){
+	myVar *= 5;
+	document.write("foo() : myVar =  " + myVar + "<br>");
+}
+foo();
+bar();
+document.write("foo() : myVar =  " + myVar + "<br>");
+</script>
+<hr>
+<h2>Локальные переменные</h2>
+<pre><code class="php">&lt;script&gt;
+var myVar = 0;
+function foo(){
+	var myVar;
+	myVar = 10;
+	document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+}
+function bar(){
+	var myVar;
+	myVar *= 5;
+	document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+}
+foo();
+bar();
+document.write(&quot;foo() : myVar =  &quot; + myVar + &quot;&lt;br&gt;&quot;);
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+var myVar = 0;
+function foo(){
+	var myVar;
+	myVar = 10;
+	document.write("foo() : myVar =  " + myVar + "<br>");
+}
+function bar(){
+	var myVar;
+	myVar *= 5;
+	document.write("foo() : myVar =  " + myVar + "<br>");
+}
+foo();
+bar();
+document.write("foo() : myVar =  " + myVar + "<br>");
+</script>
+<hr>
+<h2>Лабораторная работа</h2>
+<pre><code class="php">&lt;script&gt;
+function voron(number){
+number = parseInt(number);
+	switch(number){
+		case 1:return &quot;&lt;p class='voron'&gt;На ветке одна ворона&lt;/p&gt;&quot;;break;
+		case 2:return &quot;&lt;p class='voron'&gt;На ветке две вороны&lt;/p&gt;&quot;;break;
+		case 3:return &quot;&lt;p class='voron'&gt;На ветке три вороны&lt;/p&gt;&quot;;break;
+		case 4:return &quot;&lt;p class='voron'&gt;На ветке четыре вороны&lt;/p&gt;&quot;;break;
+		case 5:return &quot;&lt;p class='voron'&gt;На ветке пять ворон&lt;/p&gt;&quot;;break;
+		case 6:return &quot;&lt;p class='voron'&gt;На ветке шесть ворон&lt;/p&gt;&quot;;break;
+		case 7:return &quot;&lt;p class='voron'&gt;На ветке семь ворон&lt;/p&gt;&quot;;break;
+		case 8:return &quot;&lt;p class='voron'&gt;На ветке восемь ворон&lt;/p&gt;&quot;;break;
+		case 9:return &quot;&lt;p class='voron'&gt;На ветке девять ворон&lt;/p&gt;&quot;;break;
+		case 10:return &quot;&lt;p class='voron'&gt;На ветке десять ворон&lt;/p&gt;&quot;;break;
+		default:return &quot;&lt;p class='voron'&gt;На ветке неизвестное количество ворон!&lt;/p&gt;&quot;;
+	}
+
+}
+document.write(voron(4));
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+function voron(number){
+number = parseInt(number);
+	switch(number){
+		case 1:return "<p class='voron'>На ветке одна ворона</p>";break;
+		case 2:return "<p class='voron'>На ветке две вороны</p>";break;
+		case 3:return "<p class='voron'>На ветке три вороны</p>";break;
+		case 4:return "<p class='voron'>На ветке четыре вороны</p>";break;
+		case 5:return "<p class='voron'>На ветке пять ворон</p>";break;
+		case 6:return "<p class='voron'>На ветке шесть ворон</p>";break;
+		case 7:return "<p class='voron'>На ветке семь ворон</p>";break;
+		case 8:return "<p class='voron'>На ветке восемь ворон</p>";break;
+		case 9:return "<p class='voron'>На ветке девять ворон</p>";break;
+		case 10:return "<p class='voron'>На ветке десять ворон</p>";break;
+		default:return "<p class='voron'>На ветке неизвестное количество ворон!</p>";
+	}
+
+}
+document.write(voron(4));
+</script>
+<hr>
+<h2>Лабораторная работа</h2>
+<pre><code class="php">&lt;script&gt;
+var a = 10;// prompt(&quot;Введите 1 число&quot;,&quot;&quot;);
+var b = 20;//prompt(&quot;Введите 2 число&quot;,&quot;&quot;);
+a = parseInt(a);
+b = parseInt(b);
+function plus(a,b){
+	return (a+b)/2;
+}
+document.write(plus(a,b));
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+var a = 10;// prompt("Введите 1 число","");
+var b = 20;//prompt("Введите 2 число","");
+a = parseInt(a);
+b = parseInt(b);
+function plus(a,b){
+	return (a+b)/2;
+}
+document.write(plus(a,b));
+</script>
+<hr>
+<h2>Объекты в JS</h2>
+<pre><code class="php">var myBook = new Book();
+myBook.title = &quot;название&quot;;
+myBook.price = 200;
+myBook.show();
+myBook = null;
+&lt;/script&gt;</code></pre>
+<script>
+var myBook = new Book();
+myBook.title = "название";
+myBook.price = 200;
+myBook.show();
+myBook = null;
+</script>
+<h2>Строка как объект</h2>
+<pre><code class="php">&lt;script&gt;
+var s = &quot;String fun in JavaScript!!!&quot;;
+var strlen = s.length;
+document.write(&quot;&lt;p&gt;Длинна строки: &quot;+s+&quot; = &quot;+strlen+&quot;&lt;/p&gt;&quot;);
+//var s = new String();
+var headLine = new String(&quot;строка&quot;);
+document.write(&quot;&lt;p&gt;Символ номер 4 в строке = &quot;+s.charAt(3));
+document.writeln(&quot;&lt;p&gt;символ с кодом 65 - &quot;+String.fromCharCode(65)+&quot;&lt;/p&gt;&quot;);
+var str1 = new String(&quot;Это строка строка  текста&quot;);
+document.writeln(&quot;&lt;p&gt;Слово строка на находиться на &quot;+str1.indexOf(&quot;строка&quot;)+&quot; позиции в строке.&lt;/p&gt;&quot;);
+
+document.writeln(&quot;&lt;p&gt;Вырезаем 8 символов начиная с 4 символа в строке:  &quot;+str1.substr(4,8)+&quot;&lt;/p&gt;&quot;);
+document.writeln(&quot;&lt;p&gt;Вырезаем символы начиная с 4 символа в строке до символа номер 8:  &quot;+str1.substring(4,8)+&quot;&lt;/p&gt;&quot;);
+document.writeln(&quot;&lt;p&gt;Вырезаем символы начиная с 4 символа в строке до её конца :  &quot;+str1.substr(4)+&quot;&lt;/p&gt;&quot;);
+
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+var s = "String fun in JavaScript!!!";
+var strlen = s.length;
+document.write("<p>Длинна строки: "+s+" = "+strlen+"</p>");
+//var s = new String();
+var headLine = new String("строка");
+document.write("<p>Символ номер 4 в строке = "+s.charAt(3));
+document.writeln("<p>символ с кодом 65 - "+String.fromCharCode(65)+"</p>");
+var str1 = new String("Это строка строка  текста");
+document.writeln("<p>Слово строка на находиться на "+str1.indexOf("строка")+" позиции в строке.</p>");
+
+document.writeln("<p>Вырезаем 8 символов начиная с 4 символа в строке:  "+str1.substr(4,8)+"</p>");
+document.writeln("<p>Вырезаем символы начиная с 4 символа в строке до символа номер 8:  "+str1.substring(4,8)+"</p>");
+document.writeln("<p>Вырезаем символы начиная с 4 символа в строке до её конца :  "+str1.substr(4)+"</p>");
+</script>
+<hr>
+<h2>Лабораторная работа</h2>
+<pre><code class="php">//var userData = prompt(&quot;Введите Вашу фамилию имя и очество разделив их пробелом.&quot;,&quot;&quot;);
+var userData = &quot;Геройский Игорь Михайлович&quot;;
+var n1 = userData.indexOf(&quot; &quot;);
+var n2 = userData.lastIndexOf(&quot; &quot;);
+var surname = userData.slice(0,n1);
+var name = userData.slice(n1+1,n2);
+var patronymic = userData.slice(n2+1);
+document.write(&quot;&lt;p&gt;Ваше имя: &quot;+name+&quot;&lt;/p&gt;&quot;);
+document.write(&quot;&lt;p&gt;Ваша фамилия: &quot;+surname+&quot;&lt;/p&gt;&quot;);
+document.write(&quot;&lt;p&gt;Ваше отчество: &quot;+patronymic+&quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+<hr>
+<script>
+//var userData = prompt("Введите Вашу фамилию имя и очество разделив их пробелом.","");
+var userData = "Геройский Игорь Михайлович";
+var n1 = userData.indexOf(" ");
+var n2 = userData.lastIndexOf(" ");
+var surname = userData.slice(0,n1);
+var name = userData.slice(n1+1,n2);
+var patronymic = userData.slice(n2+1);
+document.write("<p>Ваше имя: "+name+"</p>");
+document.write("<p>Ваша фамилия: "+surname+"</p>");
+document.write("<p>Ваше отчество: "+patronymic+"</p>");
+</script>
+</body>
+</html>
