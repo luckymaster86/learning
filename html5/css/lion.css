@@ -1,0 +1,67 @@
+﻿body{
+	margin: 0;
+	font:0.9em/1.2 Arial, Helvetica, sans-serif;
+}
+body>header{
+	height: 405px;
+	background: url(http://lionindesert.ru/images/header-gradient.png) repeat-x;
+}
+header div:first-child{
+	height: 205px;
+	background: url(http://lionindesert.ru/images/header-title.png) no-repeat center bottom;
+}
+header div+div{
+	height: 200px;
+	background: url(http://lionindesert.ru/images/header-animal.png) repeat-x center bottom;
+}
+section{
+	background:#F9F2E3 url(http://lionindesert.ru/images/content-gradient.png) repeat-x;
+}
+section>div{
+	width: 660px;
+	margin:0 auto;
+	padding: 30px 50px 80px;
+	text-align: justify;
+	background: url(http://lionindesert.ru/images/content-bg.png) repeat-y;
+}
+aside{
+	padding-left: 70px;
+	background: url(http://lionindesert.ru/images/head.png) no-repeat;
+}
+aside p:first-child{
+	height: 30px;
+	margin-bottom: 5px;
+	background:url(http://lionindesert.ru/images/warning-title.png) no-repeat;
+}
+aside p:first-child+p{margin-top: 5px;}
+h2{font-weight: normal;}
+h2 a{color: #1AB8DC;}
+h2 a:hover{color: #FC4404;}
+footer{
+	background:#E2ED9C;
+	padding: 5px 0;
+	position: relative;
+}
+footer div{
+	height: 27px;
+	width: 100%;
+	background: url(http://lionindesert.ru/images/grass.png) repeat-x 50% 0;
+	position: absolute;
+	top: -27px;
+}
+footer div img{
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	margin:0 0 0 -350px;
+}
+footer p{
+	width: 400px;
+	margin: auto;
+	color: #526135;
+	font-weight: bold;
+}
+footer p+p{
+	margin: 5px auto;
+	font-weight: normal;
+}

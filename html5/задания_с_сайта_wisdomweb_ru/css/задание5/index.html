@@ -1,0 +1,72 @@
+<html>
+<head>
+<style type='text/css'>
+/* Определяйте стиль для таблицы здесь */
+table{
+width:500px;
+height:350px;
+}
+table, th, td 
+{
+padding:2px;
+border:1px black solid;
+border-collapse:collapse;
+}
+.right{
+text-align:right;
+}
+.center{
+text-align:center;
+}
+
+.left{
+text-align:left;
+}
+.top
+{
+vertical-align:top;
+}
+.mid
+{
+vertical-align:middle;
+}
+.bot
+{
+vertical-align:bottom;
+}
+.border1{
+border-width:1px;
+}
+.border2{
+border-width:2px;
+}
+.border3{
+border-width:3px;
+}
+.border4{
+border-width:4px;
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<td class="top">Текст ячейки <br />выравнен по верхнему краю</td>
+<td class="center mid">Текст ячейки <br />выравнен по центру</td>
+<td class="bot">Текст ячейки <br />выравнен по нижнему краю</td>
+<td class="center mid">Текст ячейки <br />выравнен по центру</td>
+</tr>
+<tr>
+<td class="border2">Толщина границы этой <br />ячейки равна 2 пикселя</td>
+<td  class="border3">Толщина границы этой <br />ячейки равна 3 пикселя</td>
+<td class="border4">Толщина границы этой <br />ячейки равна 4 пикселя</td>
+<td class="border1">Толщина границы этой <br />ячейки равна 1 пиксель</td>
+</tr>
+<tr>
+<td class="left">Текст ячейки <br />выравнен по <br />левому краю</td>
+<td class="right">Текст ячейки <br />выравнен по <br />правому краю</td>
+<td class="center" colspan="2">Текст ячейки выравнен по центру</td>
+</tr>
+</table>
+</body>
+</html>

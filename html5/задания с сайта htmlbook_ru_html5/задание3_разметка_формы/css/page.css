@@ -1,0 +1,30 @@
+﻿body{
+	background:rgb(44,255,230);
+}
+legend{
+	color:red;
+	font-size:26px;
+	font-weight:bold;
+}
+fieldset.opros{
+	margin:0 auto;
+	padding: 5px;
+	width:450px;
+	background: url(../images/check-bg.png) 15px 0px no-repeat #e1e3b8;	
+}
+h1.form{
+	font-size:18px;
+	margin-bottom:40px;
+}
+label{
+	display:block;
+}
+label, input[type="submit"] {
+	margin-left:170px;
+	margin-top:5px; 
+}
+input[type="submit"] {
+	background-color:#b98f5c;
+	border:1px solid #fff;
+	color:#fff;
+	}
